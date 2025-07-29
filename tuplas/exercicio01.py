@@ -9,7 +9,7 @@ while True:
     if numero >=0 and numero <=20:
         print('você digitou o número:', numero_ext[numero])
         continuar = input('Gostaria de continuar?').upper()
-        if continuar == 'NÃO' or 'NAO' or 'N':
+        if continuar in 'Nn':
             print('Obrigado por utilizar nosso sistema')
             break
     else:
