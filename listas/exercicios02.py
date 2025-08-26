@@ -14,8 +14,5 @@ while True:
         resp = str(input('deseja continuar? ').upper())
         if resp in 'Nn':
             break
-        
-       
-        
-   
+               
 print(f'{sorted(numeros)}')
