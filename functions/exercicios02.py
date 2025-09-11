@@ -1,54 +1,39 @@
 from time import sleep
 
-def contador():
-    cont = list()
-    print(f'Contagem de 1 até 10 de 1 em 1:')
-    for i in range(1, 11):
-        print(f'{i}', end=' ')
-        sleep(0.3)
-    print(f'Fim!')
+def contador(inicio, final, passo):
+    passo = abs(passo)
         
+    if passo == 0: 
+        passo = 1   
     
-    print('\nContagem de 10 até 0 de 2 em 2:')
-    for i in range(0, 11, 2):
-        cont.append(i)
+    print(f'Contagem de {inicio} até {final} de {passo} em {passo}:')
     
-    
-    cont.sort(reverse=True)
-    for i in cont:
-        print(f'{i}', end=' ')
-        sleep(0.3)
      
-    print(f'Fim!')     
-    print() 
-    cont.clear()
-    inicio = int(input('Inicio:'))
-    final = int(input('Final:'))
-    passo = int(input('Passo:'))
     
+    if inicio < final:
+        cont = inicio
         
-    if final > inicio:
-        print(f'Contagem de {inicio} até {final} de {passo} em {passo}:')
-        for i in range(inicio, final, passo):
-            cont.append(i)
+        while cont <= final:
+            print(f'{cont} ', end='')
+            sleep(0.25)
+            cont += passo
+        print('\nFim!\n')
         
-        for i in cont:
-            print(f'{i}', end=' ')
-            sleep(0.3)
-        print(f'Fim!') 
+    else:
+        cont = inicio
         
-        
-    if final < inicio:
-        print(f'Contagem regressiva de {final} até {inicio} de {passo} em {passo}:')
-        for i in range(final, inicio + passo, passo):
-            cont.append(i)
+        while cont >= final:
+            print(f'{cont} ', end='')
+            sleep(0.25)
+            cont -= passo
             
-        cont.sort(reverse=True) 
-            
-        for i in cont:
-            print(f'{i}', end=' ')
-            sleep(0.3)
-        print(f'Fim!')     
-            
+        print('\nFim!\n')
         
-contador()
+contador(1, 10, 1)
+contador(10, 0, 2)
+
+inicio = int(input('Inicio:'))
+final = int(input('Final:'))
+passo = int(input('Passo:'))
+
+contador(inicio, final, passo)
